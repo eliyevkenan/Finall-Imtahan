@@ -1,0 +1,51 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Team>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="mx-auto mt-5 w-75">
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="border:2px solid black" scope="col">#</th>
+                <th style="border:2px solid black" scope="col">Name</th>
+                <th style="border:2px solid black" scope="col">Job</th>
+                <th style="border:2px solid black" scope="col">Social-icons-1</th>
+                <th style="border:2px solid black" scope="col">Social-icons-2</th>
+                <th style="border:2px solid black" scope="col">Social-icons-3</th>
+                <th style="border:2px solid black" scope="col">Image</th>
+                <th style="border:2px solid black" scope="col">
+                    <a class="btn btn-primary" asp-controller="Team" asp-action="Creat">Creat</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Team item in Model)
+            {
+            <tr>
+                <th style="border:2px solid black" scope="row">@item.Id</th>
+                <td style="border:2px solid black">@item.Name</td>
+                <td style="border:2px solid black">@item.Job</td>
+                <td style="border:2px solid black">@item.SocialIcon1</td>
+                <td style="border:2px solid black">@item.SocialIcon2</td>
+                <td style="border:2px solid black">@item.SocialIcon3</td>
+                <td style="border:2px solid black">
+                    <img style="width:60px;height:60px; border-radius:8px;" src="~/assets/images/@item.Image" />
+                </td>
+                <td style="border:2px solid black">
+                    <a class="btn btn-primary" asp-controller="Team" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-danger" asp-controller="Team" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+    @Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new {page}),new X.PagedList.Web.Common.PagedListRenderOptions
+{
+    LiElementClasses=new[] {"page-item"},
+    PageClasses = new[] {"page-link"},
+})
+</div>
+

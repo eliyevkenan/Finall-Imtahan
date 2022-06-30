@@ -1,0 +1,43 @@
+﻿@model Team
+@{
+    ViewData["Title"] = "Creat";
+}
+
+<div class="mt-5 w-75 mx-auto">
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="@Model.Name" class="form-label">Name</label>
+            <input asp-for="@Model.Name" type="text" class="form-control">
+            <span asp-validation-for="@Model.Name" class="text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Job" class="form-label">Job</label>
+            <input asp-for="@Model.Job" type="text" class="form-control">
+            <span asp-validation-for="@Model.Job" class="text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.SocialIcon1" class="form-label">Sosial media hesabi-1</label>
+            <input asp-for="@Model.SocialIcon1" type="text" class="form-control">
+            <span asp-validation-for="@Model.SocialIcon1" class="text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.SocialIcon2" class="form-label">Sosial media hesabi-1</label>
+            <input asp-for="@Model.SocialIcon2" type="text" class="form-control">
+            <span asp-validation-for="@Model.SocialIcon2" class="text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.SocialIcon3" class="form-label">Sosial media hesabi-1</label>
+            <input asp-for="@Model.SocialIcon3" type="text" class="form-control">
+            <span asp-validation-for="@Model.SocialIcon3" class="text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.ImageFile" class="form-label">Image</label>
+            <input asp-for="@Model.ImageFile" type="file" class="form-control">
+            <span asp-validation-for="@Model.ImageFile" class="text text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-danger" asp-controller="Team" asp-action="Index">Back</a>
+    </form>
+</div>
+
